@@ -8,11 +8,11 @@ all: run
 build:
 	docker build -t $(IMAGE_NAME) .
 
-run: build
+run:
 	docker run -it --rm $(IMAGE_NAME)
 
-push:
+push: build
 	docker push $(IMAGE_NAME)
 
-dev: build
+dev:
 	docker run -it -v $(PWD):/app --rm $(IMAGE_NAME) bash

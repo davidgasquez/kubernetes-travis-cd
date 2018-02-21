@@ -1,0 +1,14 @@
+sudo: required
+
+services:
+  - docker
+
+language: python
+
+# before_install:
+#   - docker run --rm lachlanevenson/k8s-kubectl get nodes
+
+install:
+  - make build
+
+script: make
