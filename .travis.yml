@@ -5,10 +5,15 @@ services:
 
 language: python
 
-# before_install:
-#   - docker run --rm lachlanevenson/k8s-kubectl get nodes
+before_install:
+  - echo $KUBE_CONF | base64 -d > ${HOME}/kube_conf
 
 install:
-  - make build
+  - curl -LO https://storage.googleapis.com/kubernetes-release/release/$(curl -s https://storage.googleapis.com/kubernetes-release/release/stable.txt)/bin/linux/amd64/kubectl
+  - chmod +x ./kubectl && sudo mv kubectl /usr/local/bin/kubectl
 
-script: make
+script:
+  - docker login -u="$DOCKER_USERNAME" -p="$DOCKER_PASSWORD"
+  - make push
+
+deploy: kubectl --kubeconfig=kube_config get nodes
