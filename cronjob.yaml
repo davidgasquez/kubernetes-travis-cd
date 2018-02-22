@@ -3,15 +3,13 @@ kind: CronJob
 metadata:
   name: cronjob
 spec:
-  schedule: "0 0 * * *"
-  successfulJobsHistoryLimit: 1
-  failedJobsHistoryLimit: 2
+  schedule: "* 0 * * *"
   jobTemplate:
     spec:
       template:
         spec:
           containers:
           - name: cronjob
-            image: davidgasquez/cronjob:beta
+            image: davidgasquez/cronjob:1.0.0
             imagePullPolicy: Always
           restartPolicy: OnFailure

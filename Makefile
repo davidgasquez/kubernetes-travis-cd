@@ -1,4 +1,4 @@
-IMAGE_TAG := beta
+IMAGE_TAG := 1.0.0
 IMAGE_NAME := davidgasquez/cronjob:$(IMAGE_TAG)
 
 .PHONY: all build run dev
