@@ -1,0 +1,16 @@
+apiVersion: batch/v1beta1
+kind: CronJob
+metadata:
+  name: {{ .Release.Name }}
+spec:
+  schedule: "{{ .Values.schedule }}"
+  concurrencyPolicy: {{ .Values.concurrencyPolicy }}
+  jobTemplate:
+    spec:
+      template:
+        spec:
+          containers:
+          - name: {{ .Release.Name }}
+            image: "{{ .Values.image.name }}:{{ .Values.image.tag }}"
+            imagePullPolicy: {{ .Values.pullPolicy }}
+          restartPolicy: {{ .Values.restartPolicy }}

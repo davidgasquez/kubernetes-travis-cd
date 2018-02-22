@@ -1,0 +1,9 @@
+apiVersion: v1
+description: Cronjob sample.
+name: cronjob
+version: 0.1.0
+keywords:
+- cronjob
+maintainers:
+- name: David
+  email: davidgasquez@gmail.com
