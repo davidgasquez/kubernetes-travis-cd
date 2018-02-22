@@ -16,4 +16,8 @@ script:
   - docker login -u="$DOCKER_USERNAME" -p="$DOCKER_PASSWORD"
   - make push
 
-deploy: kubectl --kubeconfig=kube_config get nodes
+deploy:
+  - provider: script
+    script: kubectl --kubeconfig=kube_config get nodes
+    on:
+      branch: master
