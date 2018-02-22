@@ -18,6 +18,6 @@ script:
 
 deploy:
   - provider: script
-    script: kubectl --kubeconfig=kube_config get nodes
+    script: kubectl --kubeconfig=${HOME}/kube_conf apply -f cronjob.yaml
     on:
       branch: master
