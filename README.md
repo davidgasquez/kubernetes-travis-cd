@@ -1,5 +1,8 @@
 # Kubernetes Continuous Deployment with TravisCI
 
+[![Build Status](https://travis-ci.org/davidgasquez/kubernetes-travis-cd.svg?branch=master)](https://travis-ci.org/davidgasquez/kubernetes-travis-cd)
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+
 Prototype of a continuous deployment to Kubernetes pipeline using TravisCI.
 
 ## Requirements
