@@ -13,4 +13,4 @@ spec:
           - name: {{ .Release.Name }}
             image: "{{ .Values.image.name }}:{{ .Values.image.tag }}"
             imagePullPolicy: {{ .Values.pullPolicy }}
-          restartPolicy: {{ .Values.restartPolicy }}
+          restartPolicy: {{ default "OnFailure" .Values.restartPolicy }}
